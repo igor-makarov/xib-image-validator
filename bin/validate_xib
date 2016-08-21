@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'xib_image_validator'
+XIBImageValidator.validate_directory(Dir.pwd)
