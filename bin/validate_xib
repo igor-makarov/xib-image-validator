@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'bundler/setup'
+
 require 'xib_image_validator'
-XIBImageValidator.validate_directory(Dir.pwd)
+XIBImageValidator.validate_directory(ARGV[0] || Dir.pwd)
