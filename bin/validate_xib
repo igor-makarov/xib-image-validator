@@ -1,4 +1,22 @@
 #!/usr/bin/env ruby
 
 require 'xib_image_validator'
-XIBImageValidator.validate_directory(ARGV[0] || Dir.pwd)
+
+require 'optparse'
+
+# This will hold the options we parse
+options = {}
+
+OptionParser.new do |parser|
+  parser.banner = "Usage: validate_xib [dirname] [options]"
+  parser.on("-v", "--verbose", TrueClass, "Output diagnosic info.") do |v|
+    options[:verbose] = true
+  end
+	parser.on("-h", "--help", "Show this help message") do ||
+    puts parser
+  end
+end.parse!
+
+options[:dirname] = ARGV[0] || Dir.pwd
+
+XIBImageValidator.validate_directory(options)
