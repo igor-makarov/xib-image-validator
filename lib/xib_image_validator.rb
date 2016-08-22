@@ -10,7 +10,11 @@ class XIBImageValidator
   	images.merge Set.new Dir["#{dirname}/**/*.pdf"] { |f| strip_image_name(f) }
   	STDERR.puts "Found #{images.count} distinct images in directory" if verbose
 
-    Dir["#{dirname}/**/*.xib"].each do |filename|
+    files = []
+    files << Dir["#{dirname}/**/*.xib"]
+    files << Dir["#{dirname}/**/*.storyboard"] if options[:storyboard]
+
+    files.flatten.each do |filename|
     	xml = REXML::Document.new File.new(filename)
     	xml.elements.each("//image | //state | //imageView") do |elem|
     		if(elem.name == "image") 

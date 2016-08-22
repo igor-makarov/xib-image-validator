@@ -12,6 +12,9 @@ OptionParser.new do |parser|
   parser.on("-v", "--verbose", TrueClass, "Output diagnosic info.") do |v|
     options[:verbose] = true
   end
+  parser.on("-s", "--storyboard", TrueClass, "Additionally, scan storyboard files.") do |v|
+    options[:storyboard] = true
+  end
 	parser.on("-h", "--help", "Show this help message") do ||
     puts parser
   end
