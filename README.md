@@ -1,38 +1,24 @@
 # XibImageValidator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/xib_image_validator`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A gem that ensures you have the proper image files that you've referenced in your XIBs.
 
 ## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'xib_image_validator'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
 
     $ gem install xib_image_validator
 
 ## Usage
 
-TODO: Write usage instructions here
+	$ validate_xib [dirname] [options]
+    -v, --verbose                    Output diagnosic info.
+    -h, --help                       Show help message
 
-## Development
+The script will run over all .XIB files in the directory recursively, looking for all `<image>`, `<imageView>` and `<state>` (UIButton control state) tags, extracting image names and checking whether said image can be found in the directory. 
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+It does not perform advanced checks like ensuring the files are within asset catalogs or in the "Copy Bundle Resources" build phase or even in the right target, although it might be a good idea to add this functionality later.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/xib_image_validator.
+Bug reports and pull requests are welcome on GitHub at https://github.com/igor-makarov/xib-image-validator.
 
 
 ## License
