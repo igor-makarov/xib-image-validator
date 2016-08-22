@@ -9,7 +9,8 @@ A gem that ensures you have the proper image files that you've referenced in you
 ## Usage
 
 	$ validate_xib [dirname] [options]
-    -v, --verbose                    Output diagnosic info.
+    -v, --verbose                    Output diagnosic info
+    -s, --storyboard                 Additionally, scan storyboard files
     -h, --help                       Show help message
 
 The script will run over all .XIB files in the directory recursively, looking for all `<image>`, `<imageView>` and `<state>` (UIButton control state) tags, extracting image names and checking whether said image can be found in the directory. 

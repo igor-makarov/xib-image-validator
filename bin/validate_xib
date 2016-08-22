@@ -9,10 +9,10 @@ options = {}
 
 OptionParser.new do |parser|
   parser.banner = "Usage: validate_xib [dirname] [options]"
-  parser.on("-v", "--verbose", TrueClass, "Output diagnosic info.") do |v|
+  parser.on("-v", "--verbose", TrueClass, "Output diagnosic info") do |v|
     options[:verbose] = true
   end
-  parser.on("-s", "--storyboard", TrueClass, "Additionally, scan storyboard files.") do |v|
+  parser.on("-s", "--storyboard", TrueClass, "Additionally, scan storyboard files") do |v|
     options[:storyboard] = true
   end
 	parser.on("-h", "--help", "Show this help message") do ||
